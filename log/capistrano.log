@@ -1,0 +1,625 @@
+# Logfile created on 2019-08-13 12:56:06 -0400 by logger.rb/66358
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-13 12:56:06 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [097bf593] Running /usr/bin/env mkdir -p /tmp as deploy@192.168.1.25
+ DEBUG [097bf593] Command: /usr/bin/env mkdir -p /tmp
+  INFO [1496be59] Finished in 0.435 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-resume-production-chris.sh 0.0%
+  INFO Uploading /tmp/git-ssh-resume-production-chris.sh 100.0%
+  INFO [7b33de54] Running /usr/bin/env chmod 700 /tmp/git-ssh-resume-production-chris.sh as deploy@192.168.1.25
+ DEBUG [7b33de54] Command: /usr/bin/env chmod 700 /tmp/git-ssh-resume-production-chris.sh
+  INFO [33de8006] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [62ad710e] Running /usr/bin/env git ls-remote git@github.com:greasysock/resume.git HEAD as deploy@192.168.1.25
+ DEBUG [62ad710e] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git ls-remote git@github.com:greasysock/resume.git HEAD )
+ DEBUG [f2e10bdd] 	Warning: Permanently added the RSA host key for IP address '140.82.114.3' to the list of known hosts.
+ DEBUG [f2e10bdd] 	84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7	HEAD
+  INFO [f2e10bdd] Finished in 1.939 seconds with exit status 0 (successful).
+  INFO [7b3242c7] Running /usr/bin/env mkdir -p /home/deploy/resume/shared /home/deploy/resume/releases as deploy@192.168.1.25
+ DEBUG [7b3242c7] Command: /usr/bin/env mkdir -p /home/deploy/resume/shared /home/deploy/resume/releases
+  INFO [fb1d33c6] Finished in 0.042 seconds with exit status 0 (successful).
+ DEBUG [86e1bd51] Running [ -f /home/deploy/resume/current/REVISION ] as deploy@192.168.1.25
+ DEBUG [86e1bd51] Command: [ -f /home/deploy/resume/current/REVISION ]
+ DEBUG [d6a57f48] Finished in 0.042 seconds with exit status 1 (failed).
+ DEBUG [bfba49f7] Running [ -f /home/deploy/resume/repo/HEAD ] as deploy@192.168.1.25
+ DEBUG [bfba49f7] Command: [ -f /home/deploy/resume/repo/HEAD ]
+ DEBUG [5ef92df4] Finished in 0.039 seconds with exit status 1 (failed).
+ DEBUG [81c78f4b] Running if test ! -d /home/deploy/resume; then echo "Directory does not exist '/home/deploy/resume'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [81c78f4b] Command: if test ! -d /home/deploy/resume; then echo "Directory does not exist '/home/deploy/resume'" 1>&2; false; fi
+ DEBUG [319070d2] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO [dece9261] Running /usr/bin/env git clone --mirror git@github.com:greasysock/resume.git /home/deploy/resume/repo as deploy@192.168.1.25
+ DEBUG [dece9261] Command: cd /home/deploy/resume && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git clone --mirror git@github.com:greasysock/resume.git /home/deploy/resume/repo )
+ DEBUG [c3b26409] 	Cloning into bare repository '/home/deploy/resume/repo'...
+  INFO [c3b26409] Finished in 1.461 seconds with exit status 0 (successful).
+ DEBUG [53a47ba0] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [53a47ba0] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [5530cb1a] Finished in 0.047 seconds with exit status 0 (successful).
+  INFO [0b8f5332] Running /usr/bin/env git remote set-url origin git@github.com:greasysock/resume.git as deploy@192.168.1.25
+ DEBUG [0b8f5332] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git remote set-url origin git@github.com:greasysock/resume.git )
+  INFO [a9837feb] Finished in 0.044 seconds with exit status 0 (successful).
+  INFO [4644c85d] Running /usr/bin/env git remote update --prune as deploy@192.168.1.25
+ DEBUG [4644c85d] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [8d54d61a] 	Fetching origin
+ DEBUG [8d54d61a] 	Warning: Permanently added the RSA host key for IP address '140.82.113.4' to the list of known hosts.
+  INFO [8d54d61a] Finished in 1.023 seconds with exit status 0 (successful).
+ DEBUG [3d88073a] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [3d88073a] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [ed4360f3] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [ae0e6611] Running /usr/bin/env mkdir -p /home/deploy/resume/releases/20190813165609 as deploy@192.168.1.25
+ DEBUG [ae0e6611] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env mkdir -p /home/deploy/resume/releases/20190813165609 )
+  INFO [9e13c5cc] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [20bcf830] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/resume/releases/20190813165609 as deploy@192.168.1.25
+ DEBUG [20bcf830] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/resume/releases/20190813165609 )
+  INFO [d6654d98] Finished in 0.062 seconds with exit status 0 (successful).
+ DEBUG [bdb9cbc4] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [bdb9cbc4] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [98e26b2f] Finished in 0.039 seconds with exit status 0 (successful).
+ DEBUG [9be5fbad] Running /usr/bin/env git rev-list --max-count=1 master as deploy@192.168.1.25
+ DEBUG [9be5fbad] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [9df20e0e] 	84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7
+ DEBUG [9df20e0e] Finished in 0.041 seconds with exit status 0 (successful).
+ DEBUG [b3ff2244] Running if test ! -d /home/deploy/resume/releases/20190813165609; then echo "Directory does not exist '/home/deploy/resume/releases/20190813165609'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [b3ff2244] Command: if test ! -d /home/deploy/resume/releases/20190813165609; then echo "Directory does not exist '/home/deploy/resume/releases/20190813165609'" 1>&2; false; fi
+ DEBUG [5c8205e3] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [715ef3a2] Running /usr/bin/env echo "84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7" > REVISION as deploy@192.168.1.25
+ DEBUG [715ef3a2] Command: cd /home/deploy/resume/releases/20190813165609 && /usr/bin/env echo "84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7" > REVISION
+  INFO [82e51604] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [364a36a2] Running /usr/bin/env ln -s /home/deploy/resume/releases/20190813165609 /home/deploy/resume/releases/current as deploy@192.168.1.25
+ DEBUG [364a36a2] Command: /usr/bin/env ln -s /home/deploy/resume/releases/20190813165609 /home/deploy/resume/releases/current
+  INFO [1d26451c] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [f697b9d9] Running /usr/bin/env mv /home/deploy/resume/releases/current /home/deploy/resume as deploy@192.168.1.25
+ DEBUG [f697b9d9] Command: /usr/bin/env mv /home/deploy/resume/releases/current /home/deploy/resume
+  INFO [0bab3049] Finished in 0.044 seconds with exit status 0 (successful).
+ DEBUG [72124799] Running /usr/bin/env ls -x /home/deploy/resume/releases as deploy@192.168.1.25
+ DEBUG [72124799] Command: /usr/bin/env ls -x /home/deploy/resume/releases
+ DEBUG [d8cf055f] 	20190813165609
+ DEBUG [d8cf055f] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [af5bf04d] Running if test ! -d /home/deploy/resume/releases; then echo "Directory does not exist '/home/deploy/resume/releases'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [af5bf04d] Command: if test ! -d /home/deploy/resume/releases; then echo "Directory does not exist '/home/deploy/resume/releases'" 1>&2; false; fi
+ DEBUG [48862dd7] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [cc52286d] Running /usr/bin/env echo "Branch master (at 84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7) deployed as release 20190813165609 by chris" >> /home/deploy/resume/revisions.log as deploy@192.168.1.25
+ DEBUG [cc52286d] Command: cd /home/deploy/resume/releases && /usr/bin/env echo "Branch master (at 84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7) deployed as release 20190813165609 by chris" >> /home/deploy/resume/revisions.log
+  INFO [fc11caa1] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-13 12:58:50 -0400 cap production deploy latex:resume
+  INFO ---------------------------------------------------------------------------
+  INFO [e6db9cc1] Running /usr/bin/env mkdir -p /tmp as deploy@192.168.1.25
+ DEBUG [e6db9cc1] Command: /usr/bin/env mkdir -p /tmp
+  INFO [7da2bb93] Finished in 0.295 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-resume-production-chris.sh 0.0%
+  INFO Uploading /tmp/git-ssh-resume-production-chris.sh 100.0%
+  INFO [638755cf] Running /usr/bin/env chmod 700 /tmp/git-ssh-resume-production-chris.sh as deploy@192.168.1.25
+ DEBUG [638755cf] Command: /usr/bin/env chmod 700 /tmp/git-ssh-resume-production-chris.sh
+  INFO [48117994] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [77cf17d7] Running /usr/bin/env git ls-remote git@github.com:greasysock/resume.git HEAD as deploy@192.168.1.25
+ DEBUG [77cf17d7] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git ls-remote git@github.com:greasysock/resume.git HEAD )
+ DEBUG [cdd59742] 	84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7	HEAD
+  INFO [cdd59742] Finished in 0.921 seconds with exit status 0 (successful).
+  INFO [51319453] Running /usr/bin/env mkdir -p /home/deploy/resume/shared /home/deploy/resume/releases as deploy@192.168.1.25
+ DEBUG [51319453] Command: /usr/bin/env mkdir -p /home/deploy/resume/shared /home/deploy/resume/releases
+  INFO [6f9f226f] Finished in 0.041 seconds with exit status 0 (successful).
+ DEBUG [dbc4f5c8] Running [ -f /home/deploy/resume/current/REVISION ] as deploy@192.168.1.25
+ DEBUG [dbc4f5c8] Command: [ -f /home/deploy/resume/current/REVISION ]
+ DEBUG [618bf993] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [10b32c60] Running /usr/bin/env cat /home/deploy/resume/current/REVISION 2>/dev/null as deploy@192.168.1.25
+ DEBUG [10b32c60] Command: /usr/bin/env cat /home/deploy/resume/current/REVISION 2>/dev/null
+ DEBUG [46ae1df6] 	84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7
+ DEBUG [46ae1df6] Finished in 0.044 seconds with exit status 0 (successful).
+ DEBUG [404c5a59] Running [ -f /home/deploy/resume/repo/HEAD ] as deploy@192.168.1.25
+ DEBUG [404c5a59] Command: [ -f /home/deploy/resume/repo/HEAD ]
+ DEBUG [0b0323b9] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/resume/repo
+ DEBUG [e03ca43f] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [e03ca43f] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [538195c1] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [8cd379c7] Running /usr/bin/env git remote set-url origin git@github.com:greasysock/resume.git as deploy@192.168.1.25
+ DEBUG [8cd379c7] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git remote set-url origin git@github.com:greasysock/resume.git )
+  INFO [94e44360] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [b3352639] Running /usr/bin/env git remote update --prune as deploy@192.168.1.25
+ DEBUG [b3352639] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [fbd8b674] 	Fetching origin
+ DEBUG [fbd8b674] 	Warning: Permanently added the RSA host key for IP address '140.82.114.4' to the list of known hosts.
+  INFO [fbd8b674] Finished in 0.702 seconds with exit status 0 (successful).
+ DEBUG [b8f77644] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [b8f77644] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [11f2e5cc] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [759ecc2f] Running /usr/bin/env mkdir -p /home/deploy/resume/releases/20190813165851 as deploy@192.168.1.25
+ DEBUG [759ecc2f] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env mkdir -p /home/deploy/resume/releases/20190813165851 )
+  INFO [82fe09dc] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [3bb823a1] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/resume/releases/20190813165851 as deploy@192.168.1.25
+ DEBUG [3bb823a1] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/resume/releases/20190813165851 )
+  INFO [63d99948] Finished in 0.059 seconds with exit status 0 (successful).
+ DEBUG [34f17824] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [34f17824] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [9b72ab2e] Finished in 0.042 seconds with exit status 0 (successful).
+ DEBUG [8596fca2] Running /usr/bin/env git rev-list --max-count=1 master as deploy@192.168.1.25
+ DEBUG [8596fca2] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [2b55df70] 	84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7
+ DEBUG [2b55df70] Finished in 0.041 seconds with exit status 0 (successful).
+ DEBUG [047174c9] Running if test ! -d /home/deploy/resume/releases/20190813165851; then echo "Directory does not exist '/home/deploy/resume/releases/20190813165851'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [047174c9] Command: if test ! -d /home/deploy/resume/releases/20190813165851; then echo "Directory does not exist '/home/deploy/resume/releases/20190813165851'" 1>&2; false; fi
+ DEBUG [5b6c72ab] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [1e2c0743] Running /usr/bin/env echo "84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7" > REVISION as deploy@192.168.1.25
+ DEBUG [1e2c0743] Command: cd /home/deploy/resume/releases/20190813165851 && /usr/bin/env echo "84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7" > REVISION
+  INFO [fa7faa13] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO [b114e5e1] Running /usr/bin/env ln -s /home/deploy/resume/releases/20190813165851 /home/deploy/resume/releases/current as deploy@192.168.1.25
+ DEBUG [b114e5e1] Command: /usr/bin/env ln -s /home/deploy/resume/releases/20190813165851 /home/deploy/resume/releases/current
+  INFO [3f822794] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [033a0baf] Running /usr/bin/env mv /home/deploy/resume/releases/current /home/deploy/resume as deploy@192.168.1.25
+ DEBUG [033a0baf] Command: /usr/bin/env mv /home/deploy/resume/releases/current /home/deploy/resume
+  INFO [55cbe267] Finished in 0.044 seconds with exit status 0 (successful).
+ DEBUG [094822be] Running /usr/bin/env ls -x /home/deploy/resume/releases as deploy@192.168.1.25
+ DEBUG [094822be] Command: /usr/bin/env ls -x /home/deploy/resume/releases
+ DEBUG [14dcdd3e] 	20190813165609	20190813165851
+ DEBUG [14dcdd3e] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [2da6b0ae] Running if test ! -d /home/deploy/resume/releases; then echo "Directory does not exist '/home/deploy/resume/releases'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [2da6b0ae] Command: if test ! -d /home/deploy/resume/releases; then echo "Directory does not exist '/home/deploy/resume/releases'" 1>&2; false; fi
+ DEBUG [136a76cb] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [968a97ef] Running /usr/bin/env echo "Branch master (at 84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7) deployed as release 20190813165851 by chris" >> /home/deploy/resume/revisions.log as deploy@192.168.1.25
+ DEBUG [968a97ef] Command: cd /home/deploy/resume/releases && /usr/bin/env echo "Branch master (at 84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7) deployed as release 20190813165851 by chris" >> /home/deploy/resume/revisions.log
+  INFO [4e8cc1ea] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-13 13:00:11 -0400 cap production deploy latex:resume
+  INFO ---------------------------------------------------------------------------
+  INFO [d365eccf] Running /usr/bin/env mkdir -p /tmp as deploy@192.168.1.25
+ DEBUG [d365eccf] Command: /usr/bin/env mkdir -p /tmp
+  INFO [058b3827] Finished in 0.236 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-resume-production-chris.sh 0.0%
+  INFO Uploading /tmp/git-ssh-resume-production-chris.sh 100.0%
+  INFO [2587c5a7] Running /usr/bin/env chmod 700 /tmp/git-ssh-resume-production-chris.sh as deploy@192.168.1.25
+ DEBUG [2587c5a7] Command: /usr/bin/env chmod 700 /tmp/git-ssh-resume-production-chris.sh
+  INFO [c795563f] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [f3222981] Running /usr/bin/env git ls-remote git@github.com:greasysock/resume.git HEAD as deploy@192.168.1.25
+ DEBUG [f3222981] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git ls-remote git@github.com:greasysock/resume.git HEAD )
+ DEBUG [54409b56] 	Warning: Permanently added the RSA host key for IP address '140.82.113.3' to the list of known hosts.
+ DEBUG [54409b56] 	84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7	HEAD
+  INFO [54409b56] Finished in 4.951 seconds with exit status 0 (successful).
+  INFO [7315f9cc] Running /usr/bin/env mkdir -p /home/deploy/resume/shared /home/deploy/resume/releases as deploy@192.168.1.25
+ DEBUG [7315f9cc] Command: /usr/bin/env mkdir -p /home/deploy/resume/shared /home/deploy/resume/releases
+  INFO [2c7dc2d9] Finished in 0.039 seconds with exit status 0 (successful).
+ DEBUG [dc875645] Running [ -f /home/deploy/resume/current/REVISION ] as deploy@192.168.1.25
+ DEBUG [dc875645] Command: [ -f /home/deploy/resume/current/REVISION ]
+ DEBUG [b8655b56] Finished in 0.042 seconds with exit status 0 (successful).
+ DEBUG [67e4101c] Running /usr/bin/env cat /home/deploy/resume/current/REVISION 2>/dev/null as deploy@192.168.1.25
+ DEBUG [67e4101c] Command: /usr/bin/env cat /home/deploy/resume/current/REVISION 2>/dev/null
+ DEBUG [91de82df] 	84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7
+ DEBUG [91de82df] Finished in 0.041 seconds with exit status 0 (successful).
+ DEBUG [3248053a] Running [ -f /home/deploy/resume/repo/HEAD ] as deploy@192.168.1.25
+ DEBUG [3248053a] Command: [ -f /home/deploy/resume/repo/HEAD ]
+ DEBUG [fa2d4750] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/resume/repo
+ DEBUG [a034e25f] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [a034e25f] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [626c891b] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [f16e73ea] Running /usr/bin/env git remote set-url origin git@github.com:greasysock/resume.git as deploy@192.168.1.25
+ DEBUG [f16e73ea] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git remote set-url origin git@github.com:greasysock/resume.git )
+  INFO [26372116] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [5acc51f4] Running /usr/bin/env git remote update --prune as deploy@192.168.1.25
+ DEBUG [5acc51f4] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [b7e49ccc] 	Fetching origin
+  INFO [b7e49ccc] Finished in 2.181 seconds with exit status 0 (successful).
+ DEBUG [e1c4df7f] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [e1c4df7f] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [655cd2c8] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [d1a2de88] Running /usr/bin/env mkdir -p /home/deploy/resume/releases/20190813170017 as deploy@192.168.1.25
+ DEBUG [d1a2de88] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env mkdir -p /home/deploy/resume/releases/20190813170017 )
+  INFO [1cd9509e] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [54e614bb] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/resume/releases/20190813170017 as deploy@192.168.1.25
+ DEBUG [54e614bb] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/resume/releases/20190813170017 )
+  INFO [4953595b] Finished in 0.057 seconds with exit status 0 (successful).
+ DEBUG [44fcccf3] Running if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [44fcccf3] Command: if test ! -d /home/deploy/resume/repo; then echo "Directory does not exist '/home/deploy/resume/repo'" 1>&2; false; fi
+ DEBUG [3b658814] Finished in 0.040 seconds with exit status 0 (successful).
+ DEBUG [f8db4851] Running /usr/bin/env git rev-list --max-count=1 master as deploy@192.168.1.25
+ DEBUG [f8db4851] Command: cd /home/deploy/resume/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-resume-production-chris.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [2052548c] 	84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7
+ DEBUG [2052548c] Finished in 0.041 seconds with exit status 0 (successful).
+ DEBUG [d64a9c8f] Running if test ! -d /home/deploy/resume/releases/20190813170017; then echo "Directory does not exist '/home/deploy/resume/releases/20190813170017'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [d64a9c8f] Command: if test ! -d /home/deploy/resume/releases/20190813170017; then echo "Directory does not exist '/home/deploy/resume/releases/20190813170017'" 1>&2; false; fi
+ DEBUG [daa3b27b] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [d816eab7] Running /usr/bin/env echo "84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7" > REVISION as deploy@192.168.1.25
+ DEBUG [d816eab7] Command: cd /home/deploy/resume/releases/20190813170017 && /usr/bin/env echo "84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7" > REVISION
+  INFO [b4a5b8c9] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO [408927e5] Running /usr/bin/env ln -s /home/deploy/resume/releases/20190813170017 /home/deploy/resume/releases/current as deploy@192.168.1.25
+ DEBUG [408927e5] Command: /usr/bin/env ln -s /home/deploy/resume/releases/20190813170017 /home/deploy/resume/releases/current
+  INFO [c46fef9e] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [8fba6008] Running /usr/bin/env mv /home/deploy/resume/releases/current /home/deploy/resume as deploy@192.168.1.25
+ DEBUG [8fba6008] Command: /usr/bin/env mv /home/deploy/resume/releases/current /home/deploy/resume
+  INFO [dea78201] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [ab3e4ffb] Running /usr/bin/env ls -x /home/deploy/resume/releases as deploy@192.168.1.25
+ DEBUG [ab3e4ffb] Command: /usr/bin/env ls -x /home/deploy/resume/releases
+ DEBUG [5524ba78] 	20190813165609	20190813165851	20190813170017
+ DEBUG [5524ba78] Finished in 0.043 seconds with exit status 0 (successful).
+ DEBUG [a49fe61c] Running if test ! -d /home/deploy/resume/releases; then echo "Directory does not exist '/home/deploy/resume/releases'" 1>&2; false; fi as deploy@192.168.1.25
+ DEBUG [a49fe61c] Command: if test ! -d /home/deploy/resume/releases; then echo "Directory does not exist '/home/deploy/resume/releases'" 1>&2; false; fi
+ DEBUG [56db95bd] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO [970326c5] Running /usr/bin/env echo "Branch master (at 84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7) deployed as release 20190813170017 by chris" >> /home/deploy/resume/revisions.log as deploy@192.168.1.25
+ DEBUG [970326c5] Command: cd /home/deploy/resume/releases && /usr/bin/env echo "Branch master (at 84dc49c40ab29dcbe8e09f9c47328129fd9bf9d7) deployed as release 20190813170017 by chris" >> /home/deploy/resume/revisions.log
+  INFO [4bf83b9e] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [a5b2b12f] Running pdflatex resume.tex as chris@localhost
+ DEBUG [a5b2b12f] Command: pdflatex resume.tex
+ DEBUG [9bffd6bd] 	This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex)
+ DEBUG [9bffd6bd] 	 restricted \write18 enabled.
+ DEBUG [9bffd6bd] 	entering extended mode
+ DEBUG [9bffd6bd] 	(./resume.tex
+ DEBUG [9bffd6bd] 	LaTeX2e <2018-12-01>
+ DEBUG [9bffd6bd] 	(./awesome-cv.cls
+ DEBUG [9bffd6bd] 	Document Class: awesome-cv 2015/12/14 v1.3 Awesome Curriculum Vitae Class
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/base/article.cls
+ DEBUG [9bffd6bd] 	Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/base/size10.clo))
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/tools/array.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/ms/ragged2e.sty
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/ms/everysel.sty))
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def))
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/xifthen/xifthen.sty
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/tools/calc.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/base/ifthen.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty))
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/setspace/setspace.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/base/t1enc.def))
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/base/inputenc.sty)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/l3kernel/expl3-code.tex)
+ DEBUG [9bffd6bd] 	(/usr/share/texmf-dist/tex/latex/l3kernel/l3pdfmode.def))
+ DEBUG [9bffd6bd] 	
+ DEBUG [9bffd6bd] 	! Package unicode-math Error: Cannot be run with pdfLaTeX!
+ DEBUG [9bffd6bd] 	(unicode-math)                Use XeLaTeX or LuaLaTeX instead.
+ DEBUG [9bffd6bd] 	
+ DEBUG [9bffd6bd] 	Type <return> to continue.
+ DEBUG [9bffd6bd] 	 ...                                              
+ DEBUG [9bffd6bd] 	                                                  
+ DEBUG [9bffd6bd] 	l.35   }
+ DEBUG [9bffd6bd] 	        
+ DEBUG [9bffd6bd] 	? ! Interruption.
+ DEBUG [9bffd6bd] 	\__msg_use:nnnnnnn ...l}{message-unknown}{#2}{#3}}
+ DEBUG [9bffd6bd] 	                                                  \use:c {conditionally@trac...
+ DEBUG [9bffd6bd] 	l.35   }
+ DEBUG [9bffd6bd] 	        
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-13 13:06:19 -0400 cap production latex:resume
+  INFO ---------------------------------------------------------------------------
+  INFO [a7393ba3] Running xelatex resume.tex as chris@localhost
+ DEBUG [a7393ba3] Command: xelatex resume.tex
+ DEBUG [300663bf] 	This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex)
+ DEBUG [300663bf] 	 restricted \write18 enabled.
+ DEBUG [300663bf] 	entering extended mode
+ DEBUG [300663bf] 	(./resume.tex
+ DEBUG [300663bf] 	LaTeX2e <2018-12-01>
+ DEBUG [300663bf] 	(./awesome-cv.cls
+ DEBUG [300663bf] 	Document Class: awesome-cv 2015/12/14 v1.3 Awesome Curriculum Vitae Class
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/article.cls
+ DEBUG [300663bf] 	Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/size10.clo))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/tools/array.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/ms/ragged2e.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/ms/everysel.sty))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/graphics-def/xetex.def))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/xifthen/xifthen.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/tools/calc.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/ifthen.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/setspace/setspace.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/l3kernel/expl3-code.tex)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def)))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/tuenc.def))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/filehook/filehook.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/fix-cm.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/ts1enc.def))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex)))
+ DEBUG [300663bf] 	(./fontawesome.sty) (/usr/share/texmf-dist/tex/latex/parskip/parskip.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty)))))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/oberdiek/auxhook.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/latexconfig/hyperref.cfg)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/url/url.sty))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/hyperref/hxetex.def
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/stringenc.sty)
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/se-ascii-print.def))
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/textcomp.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/base/ts1enc.def)) (./resume.aux)
+ DEBUG [300663bf] 	ABD: EverySelectfont initializing macros
+ DEBUG [300663bf] 	*geometry* driver: auto-detecting
+ DEBUG [300663bf] 	*geometry* detected driver: xetex
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+ DEBUG [300663bf] 	(/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty)) (./resume.out)
+ DEBUG [300663bf] 	 (./resume.out)
+ DEBUG [300663bf] 	Overfull \hbox (69.34567pt too wide) in paragraph at lines 90--90
+ DEBUG [300663bf] 	[][][]|  
+ DEBUG [300663bf] 	
+ DEBUG [300663bf] 	Overfull \hbox (10.2666pt too wide) in paragraph at lines 101--101
+ DEBUG [300663bf] 	 []\TU/SourceSansPro(2)/m/it/8 https://github.com/greasysock/bnbwithme-
+ DEBUG [300663bf] 	
+ DEBUG [300663bf] 	Overfull \hbox (14.3706pt too wide) in paragraph at lines 122--122
+ DEBUG [300663bf] 	 []\TU/SourceSansPro(2)/m/it/8 https://github.com/greasysock/devisesession[]|
+ DEBUG [300663bf] 	
+ DEBUG [300663bf] 	Overfull \hbox (5.5466pt too wide) in paragraph at lines 130--130
+ DEBUG [300663bf] 	 []\TU/SourceSansPro(2)/m/it/8 https://github.com/greasysock/railscookie[]|
+ DEBUG [300663bf] 	[1] (./resume.aux) )
+ DEBUG [300663bf] 	(see the transcript file for additional information)
+ DEBUG [300663bf] 	Output written on resume.pdf (1 page).
+ DEBUG [300663bf] 	Transcript written on resume.log.
+  INFO [300663bf] Finished in 1.369 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-13 13:09:24 -0400 cap production latex:resume
+  INFO ---------------------------------------------------------------------------
+  INFO [5880b2d8] Running xelatex resume.tex as deploy@192.168.1.25
+ DEBUG [5880b2d8] Command: xelatex resume.tex
+ DEBUG [6ef547c6] 	bash: xelatex: command not found
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-13 13:30:43 -0400 cap production latex:resume
+  INFO ---------------------------------------------------------------------------
+  INFO [452bf08f] Running xelatex resume.tex as deploy@192.168.1.25
+ DEBUG [452bf08f] Command: xelatex resume.tex
+ DEBUG [59c178a9] 	This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex)
+ restricted \write18 enabled.
+ DEBUG [59c178a9] 	entering extended mode
+! I can't find file `resume.tex'.
+<*> resume.tex
+              
+(Press Enter to retry, or Control-D to exit)
+Please type another input file name: 
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-13 13:33:25 -0400 cap production latex:resume
+  INFO ---------------------------------------------------------------------------
+  INFO [6e563cc9] Running cd '/home/deploy/resume/current';xelatex resume.tex as deploy@192.168.1.25
+ DEBUG [6e563cc9] Command: cd '/home/deploy/resume/current';xelatex resume.tex
+ DEBUG [81dbab8c] 	This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex)
+ restricted \write18 enabled.
+ DEBUG [81dbab8c] 	entering extended mode
+(./resume.tex
+ DEBUG [81dbab8c] 	
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(./awesome-cv.cls
+ DEBUG [81dbab8c] 	
+Document Class: awesome-cv 2015/12/14 v1.3 Awesome Curriculum Vitae Class
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+ DEBUG [81dbab8c] 	
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everysel.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/xifthen/xifthen.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/base/tuenc.def
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/filehook/filehook.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/base/fix-cm.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	 (./fontawesome.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/stringenc.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+No file resume.aux.
+ABD: EverySelectfont initializing macros
+ DEBUG [81dbab8c] 	
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+ DEBUG [81dbab8c] 	
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+
+Overfull \hbox (69.34567pt too wide) in paragraph at lines 90--90
+[][][]|  
+
+Overfull \hbox (10.2666pt too wide) in paragraph at lines 101--101
+ []\TU/SourceSansPro(2)/m/it/8 https://github.com/greasysock/bnbwithme-
+
+Overfull \hbox (4.1946pt too wide) in paragraph at lines 109--109
+ []\TU/SourceSansPro(2)/m/it/8 https://github.com/greasysock/CahasEDI-
+
+Overfull \hbox (14.3706pt too wide) in paragraph at lines 130--130
+ []\TU/SourceSansPro(2)/m/it/8 https://github.com/greasysock/devisesession[]|
+
+Overfull \hbox (5.5466pt too wide) in paragraph at lines 138--138
+ []\TU/SourceSansPro(2)/m/it/8 https://github.com/greasysock/railscookie[]|
+[1
+ DEBUG [81dbab8c] 	]
+ DEBUG [81dbab8c] 	 [2
+ DEBUG [81dbab8c] 	]
+ DEBUG [81dbab8c] 	 (./resume.aux
+ DEBUG [81dbab8c] 	)
+ DEBUG [81dbab8c] 	 )
+(see the transcript file for additional information)
+Output written on resume.pdf (2 pages).
+Transcript written on resume.log.
+  INFO [81dbab8c] Finished in 1.730 seconds with exit status 0 (successful).
+ DEBUG [c3da492d] Running /usr/bin/env uptime as deploy@192.168.1.25
+ DEBUG [c3da492d] Command: /usr/bin/env uptime
+ DEBUG [2b5a6a48] 	 17:33:26 up 8 days, 21:54,  2 users,  load average: 0.18, 0.55, 0.43
+ DEBUG [2b5a6a48] Finished in 0.042 seconds with exit status 0 (successful).
+  INFO Host 192.168.1.25 (latex):	17:33:26 up 8 days, 21:54,  2 users,  load average: 0.18, 0.55, 0.43

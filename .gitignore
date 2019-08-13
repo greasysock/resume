@@ -1,2 +1,7 @@
 .resume.tex.swp
 resume.pdf
+production.rb
+resume.aux
+resume.log
+resume.out
+log/*
