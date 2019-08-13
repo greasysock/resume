@@ -1,0 +1,142 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Themes: Awesome-CV
+\documentclass[]{awesome-cv}
+\usepackage{textcomp} 
+
+%%% Override a directory location for fonts(default: 'fonts/')
+\fontdir[fonts/]
+
+%%% Configure a directory location for sections
+\newcommand*{\sectiondir}{resume/}
+
+%%% Override color
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+%% Color for highlight
+% Define your custom color if you don't like awesome colors
+\colorlet{awesome}{awesome-red}
+%\definecolor{awesome}{HTML}{CA63A8}
+%% Colors for text
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+%%% Override a separator for social informations in header(default: ' | ')
+%\headersocialsep[\quad\textbar\quad]
+    \begin{document}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Profile
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+	\headerfirstnamestyle{Chris} \headerlastnamestyle{Gresock} \\
+	\vspace{2mm}
+	{\faEnvelope\ chris.gresock@gmail.com} | {\faMobile\ 919-896-0093} | {\faMapMarker\ Apex, NC} | {\faLink\ chrismedia.dev} | {\faGithub\ greasysock}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Education
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvsection{Education}
+\begin{cventries}
+	\cventry
+	{Highschool}
+	{Southern Wake Academy}
+	{Fuquay-Varina, NC}
+	{Graduated Summer 2016}
+	{}
+	\cventry
+	{AS in Science and Engineering}
+	{Wake Technical Community College}
+	{Raleigh, NC}
+	{Spring 2017 – Spring 2020}
+	{GPA: 3.1}
+\end{cventries}
+
+\vspace{-2mm}
+\cvsection{Summary}
+
+	Summary Section
+
+\cvsection{Skills}
+\begin{cventries}
+	\cventry
+	{}
+	{\def\arraystretch{1.15}{\begin{tabular}{ l l }
+		Languages I use:  & {\skill{ Python (95\%), Ruby (85\%), Go (35\%), Javascript (75\%)}} \\
+		\\
+		Technologies I use:  & {\skill{ Ruby on Rails (Ruby), React (Javascript),  Redux (Javscript), Sqlalchemy (Python)}} \\
+		\end{tabular}}}
+	{}
+	{}
+	{}
+\end{cventries}
+
+\vspace{-7mm}
+\cvsection{Major Projects}
+\begin{cventries}
+	\cventry
+	{An open source dashboard application to synchronize ics links from Airbnb and VRBO to create a synchronized calendar for easier property management. This project is built with Ruby on Rails as the backend and with React and Redux on the frontend. The entire frontend is built in javascript. On the backend there is a cron script written in Python to synchronize the ics links to the database for easier consumption.}
+	{Bnbwithme Dashboard}
+	{react, redux, ruby on rails, javascript, python, sqlalchemy, postgresql}
+	{https://github.com/greasysock/bnbwithme-dashboard}
+	{}
+	
+	\vspace{-5mm}
+	\cventry
+	{An EDI frontend and backend. The backend is written in Python while the frontend is built with Ruby On Rails. In order to make all the pieces of this software work I needed to plan the entire architecture from the backend to the frontend and build out an entirely new EDI library in python from scratch in order to abstract the EDI documents.}
+	{CahasEDI System}
+	{python, ruby, postgresql, sqlalchemy, falcon, git, ruby on rails, bootstrap}
+	{https://github.com/greasysock/CahasEDI-Core}
+	{}
+	
+	\vspace{-5mm}
+	\cventry
+	{Created with ruby on rails. This site features an interactive blog and comments section driven by javascript and ActionCable provided by rails. It also includes a fully functional admin view for controlling content on the site.}
+	{Portfolio Site}
+	{ruby, ruby on rails, ActionCable, javascript, bootstrap, postgresql, git}
+	{https://chrismedia.tech}
+	{}
+	
+	\vspace{-5mm}
+\end{cventries}
+
+\vspace{3mm}
+\cvsection{Minor Projects}
+\begin{cventries}
+	\cventry
+	{A small go library for creating user sessions from cookies in go for synchronizing with the devise library for ruby on rails.}
+	{devisesession}
+	{go, json}
+	{https://github.com/greasysock/devisesession}
+	{}
+	
+	\vspace{-5mm}
+	\cventry
+	{Another small go library for decrypting cookies created with rails for the creation of a devise session.}
+	{railscookie}
+	{go, openssl}
+	{https://github.com/greasysock/railscookie}
+	{}
+\end{cventries}
+
+\ 
+\end{document}
