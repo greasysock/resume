@@ -27,18 +27,8 @@
 %%% Configure a directory location for sections
 \newcommand*{\sectiondir}{resume/}
 
-%%% Override color
-% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%                 awesome-nephritis, awesome-concrete, awesome-darknight
-%% Color for highlight
-% Define your custom color if you don't like awesome colors
 \colorlet{awesome}{awesome-red}
-%\definecolor{awesome}{HTML}{CA63A8}
-%% Colors for text
-%\definecolor{darktext}{HTML}{414141}
-%\definecolor{text}{HTML}{414141}
-%\definecolor{graytext}{HTML}{414141}
-%\definecolor{lighttext}{HTML}{414141}
+
 
 %%% Override a separator for social informations in header(default: ' | ')
 %\headersocialsep[\quad\textbar\quad]
@@ -52,91 +42,12 @@
 	\vspace{2mm}
 	{\faEnvelope\ chris.gresock@gmail.com} | {\faMobile\ 919-896-0093} | {\faMapMarker\ Apex, NC} | {\faLink\ www.chrismedia.dev} | {\faGithub\ greasysock}
 \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Education
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\cvsection{Education}
-\begin{cventries}
-	\cventry
-	{High School}
-	{Southern Wake Academy}
-	{Fuquay-Varina, NC}
-	{Graduated Summer 2015}
-	{}
-	\cventry
-	{AS in Science and Engineering}
-	{Wake Technical Community College}
-	{Raleigh, NC}
-	{Spring 2016 – Fall 2019}
-	{GPA: 3.1}
-\end{cventries}
 
-\vspace{-2mm}
-\cvsection{Summary}
-
-	Minimalist frontend and backend design is what I strive for. I am an aspiring full-stack web developer and a student at Wake Technical Community College. I am a highly motivated learner who is always working to improve while being as efficient as possible. I have spent the last year learning Ruby on Rails and React as a technology stack with online courses to learn industry best practices.
-
-\cvsection{Skills}
-\begin{cventries}
-	\cventry
-	{}
-	{\def\arraystretch{1.15}{\begin{tabular}{ l l }
-		Languages I use:  & {\skill{ JavaScript, Ruby, Python, Go }} \\
-		\\
-		Technologies I use:  & {\skill{ Ruby on Rails (Ruby), React (JavaScript),  Redux (JavaScript), Sqlalchemy (Python), Git, Linux}} \\
-		\end{tabular}}}
-	{}
-	{}
-	{}
-\end{cventries}
-
-\vspace{-7mm}
-\cvsection{Major Projects}
-\begin{cventries}
-	\cventry
-	{An open source dashboard application to coordinate ics links from Airbnb and VRBO to create an all-in-one calendar for easier property management. This project is built with Ruby on Rails as the backend and with React and Redux for the frontend. The entire frontend is built as a single page application. During the course of this project I kept an open line of communication with the client in order to deliver the exact features they needed in the most timely manner possible.}
-	{Bnbwithme Dashboard}
-	{react, redux, ruby on rails, javascript, webpacker}
-	{https://github.com/greasysock/bnbwithme-dashboard}
-	{}
-	
-	\vspace{-5mm}
-	\cventry
-	{Created with ruby on rails. My portfolio site features an interactive blog and comments section driven by JavaScript and ActionCable provided by Ruby on Rails. It also includes a fully functional admin view for controlling content on the site.}
-	{Portfolio Site}
-	{ruby, ruby on rails, ActionCable, javascript, bootstrap, postgresql, git}
-	{https://www.chrismedia.dev}
-	{}
-	
-	\vspace{-5mm}
-\end{cventries}
-
-\vspace{3mm}
-\cvsection{Minor Projects}
-\begin{cventries}
-	\cventry
-	{A small go library for creating user sessions from cookies in go for synchronizing with the devise library for ruby on rails.}
-	{devisesession}
-	{go, json}
-	{https://github.com/greasysock/devisesession}
-	{}
-	
-	\vspace{-5mm}
-	\cventry
-	{Another small go library for decrypting cookies created with rails for the creation of a devise session.}
-	{railscookie}
-	{go, openssl}
-	{https://github.com/greasysock/railscookie}
-	{}
-
-	\vspace{-5mm}
-	\cventry
-	{A simple cron job for synchronizing ics links to the database, working in conjunction with Bnbwithme Dashboard.}
-	{Bnbwithme Dashboard Calendar}
-	{python, postgresql, sqlalchemy, requests}
-	{https://github.com/greasysock/bnbwithme-calendar}
-	{}
-\end{cventries}
+\input{cv/education.tex}
+\input{cv/experience.tex}
+\input{cv/summary.tex}
+\input{cv/skills.tex}
+\input{cv/projects.tex}
 
 \ 
 \end{document}
